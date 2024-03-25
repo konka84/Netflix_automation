@@ -24,10 +24,16 @@ it('verify the functionality  of sign in button for invalid credentials',()=>{
   cy.get('button').contains("Sign In").click()
   cy.wait(6000)
   cy.get('div').contains("Sorry, we can't find an account with this email address. Please try again or ").should('exist')
- 
+ cy.get('a').contains('create a new account').click()
 
-
- })
+})
+it('verify the functionality of sign up',()=>{
+  cy.visit('https://www.netflix.com')
+  cy.get('input[autocomplete="email"]').eq(0).type("1784konka@gmail.com")
+  cy.wait(6000)
+  cy.get('button').contains("Get Started").click()
+  
+})
 
 
 
